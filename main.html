@@ -1,0 +1,3945 @@
+```html
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+:root {
+  --bg: #090c10;
+  --slate1: #171c22;
+  --slate2: #20272f;
+  --slate3: #2d363f;
+  --dark: #07090b;
+  --light: #6f7c87;
+  --text: #e6ebef;
+  --muted: #87929c;
+  --blue: #86abc4;
+  --orange: #d47a3c;
+}
+
+/* =========================================================
+   APP ROOT
+   Your site's existing top bar remains outside this.
+   ========================================================= */
+
+#bai-root {
+  width: 100%;
+  height: calc(100vh - 70px);
+  min-height: 500px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: #090c10;
+  color: var(--text);
+
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+#bai-login {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #171c22 0%,
+      #0e1115 45%,
+      #080a0d 100%
+    );
+}
+
+#bai-login-panel {
+  width: min(390px, 100%);
+
+  padding: 28px;
+
+  background: #101419;
+
+  border: 1px solid #252d35;
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.5);
+}
+
+#bai-login-title {
+  color: #e9eef1;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#bai-login-subtitle {
+  margin-top: 4px;
+  margin-bottom: 22px;
+
+  color: #6e7983;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.bai-login-input {
+  width: 100%;
+
+  margin-bottom: 10px;
+
+  padding: 11px;
+
+  color: #e3e8eb;
+  background: #090c10;
+
+  border: 1px solid #252d35;
+
+  outline: none;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+}
+
+.bai-login-input:focus {
+  border-color: #5a7383;
+}
+
+#bai-login-buttons {
+  display: flex;
+  gap: 8px;
+
+  margin-top: 3px;
+}
+
+.bai-login-button {
+  flex: 1;
+
+  padding: 10px;
+
+  color: #dfe6ea;
+
+  background: #1b2229;
+
+  border: 1px solid #303942;
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.bai-login-button:hover {
+  background: #242d35;
+}
+
+#bai-login-status {
+  min-height: 18px;
+
+  margin-top: 12px;
+
+  color: #8b979f;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+}
+
+/* =========================================================
+   LOGGED-IN APP
+   ========================================================= */
+
+#bai-app {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      #2a343d 0%,
+      #181e24 35%,
+      #090c10 100%
+    );
+}
+
+/* Subtle metallic scanline texture */
+#bai-app::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .07;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.04) 0px,
+      rgba(255,255,255,.04) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+/* =========================================================
+   APPLICATION BAR
+   ========================================================= */
+
+#bai-appbar {
+  position: relative;
+  z-index: 5;
+
+  flex: none;
+
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #35404a 0%,
+      #2a343d 46%,
+      #20272f 51%,
+      #181e24 100%
+    );
+
+  border-top: 1px solid #77848f;
+  border-bottom: 1px solid #050607;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.08),
+    0 2px 7px rgba(0,0,0,.55);
+}
+
+#bai-app-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #e2e8ec;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#bai-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #d8efff,
+      #88b2cb 40%,
+      #43667d
+    );
+
+  border: 1px solid #a9bfcd;
+
+  box-shadow:
+    0 0 4px rgba(134,171,196,.5),
+    inset 0 1px rgba(255,255,255,.45);
+}
+
+#bai-account-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#bai-username {
+  color: #d0d8dd;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+}
+
+#bai-model {
+  color: #87939d;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+}
+
+#bai-mode {
+  display: flex;
+  gap: 4px;
+}
+
+.bai-mode-button {
+  padding: 5px 8px;
+
+  color: #adb7be;
+
+  background:
+    linear-gradient(
+      180deg,
+      #414c56,
+      #303942
+    );
+
+  border: 1px solid #07090b;
+  border-top-color: #71808b;
+
+  cursor: pointer;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+}
+
+.bai-mode-button.active {
+  color: #f0f3f5;
+
+  background:
+    linear-gradient(
+      180deg,
+      #5a6975,
+      #3e4b55
+    );
+}
+
+#bai-logout {
+  padding: 5px 8px;
+
+  color: #c6ced3;
+
+  background:
+    linear-gradient(
+      180deg,
+      #505d68,
+      #354049
+    );
+
+  border: 1px solid #07090b;
+  border-top-color: #7a8791;
+
+  cursor: pointer;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+}
+
+#bai-logout:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #5f6e7a,
+      #414e58
+    );
+}
+
+/* =========================================================
+   MODE AREAS
+   ========================================================= */
+
+#bai-ai-mode,
+#bai-chatroom-mode {
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+}
+
+/* =========================================================
+   AI SIDEBAR
+   ========================================================= */
+
+#bai-ai-sidebar {
+  width: 215px;
+
+  min-height: 0;
+
+  flex: none;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(
+      180deg,
+      #242b32,
+      #181e24
+    );
+
+  border-right: 1px solid #050607;
+}
+
+#bai-sidebar-heading {
+  padding: 13px 11px 8px;
+
+  color: #9aa5ae;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+#bai-new-chat {
+  margin: 2px 9px 11px;
+
+  padding: 8px 9px;
+
+  color: #e3e8eb;
+
+  background:
+    linear-gradient(
+      180deg,
+      #505d68,
+      #3b4751 48%,
+      #2c353e 52%,
+      #242c33
+    );
+
+  border: 1px solid #080a0c;
+  border-top-color: #7b8791;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 11px;
+}
+
+#bai-new-chat:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #5e6d78,
+      #43515c
+    );
+}
+
+#bai-conversations {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 0 7px 8px;
+}
+
+.bai-conversation-item {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.bai-conversation {
+  display: block;
+  flex: 1;
+  min-width: 0;
+
+  padding: 8px;
+
+  color: #9da8b1;
+
+  background: transparent;
+
+  border: 1px solid transparent;
+
+  border-right: 0;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 11px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bai-conversation:hover {
+  color: #e1e6ea;
+
+  background:
+    linear-gradient(
+      180deg,
+      #313a43,
+      #272f36
+    );
+
+  border-color: #38444e;
+  border-right: 0;
+}
+
+.bai-conversation.active {
+  color: #f0f3f5;
+
+  background:
+    linear-gradient(
+      180deg,
+      #46525e,
+      #303943
+    );
+
+  border: 1px solid #080a0c;
+  border-right: 0;
+  border-top-color: #7b8791;
+}
+
+.bai-conversation-delete {
+  width: 26px;
+  flex: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  color: #84909a;
+
+  background: transparent;
+
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+
+  opacity: 0;
+  transition: opacity .12s ease, color .12s ease, background .12s ease;
+}
+
+.bai-conversation-item:hover .bai-conversation-delete,
+.bai-conversation-item:focus-within .bai-conversation-delete {
+  opacity: 1;
+}
+
+.bai-conversation-delete:hover {
+  color: #e07f75;
+  background: #2c2021;
+  border-color: #543132;
+}
+
+.bai-conversation-item.active .bai-conversation-delete {
+  background: #303943;
+  border-color: #080a0c;
+  border-left-color: #1b2229;
+  opacity: 1;
+}
+
+/* =========================================================
+   AI CHAT
+   ========================================================= */
+
+#bai-ai-chat {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#bai-ai-log {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 28px;
+}
+
+#bai-ai-log-inner {
+  width: min(800px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+#bai-ai-empty {
+  width: min(600px, 100%);
+
+  margin: 90px auto 0;
+
+  color: #69747e;
+
+  text-align: center;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+}
+
+.bai-ai-row {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+}
+
+.bai-ai-tag {
+  width: 45px;
+
+  flex: none;
+
+  padding-top: 3px;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+.bai-ai-row.you .bai-ai-tag {
+  color: #da9059;
+}
+
+.bai-ai-row.ai .bai-ai-tag {
+  color: #8aafc7;
+}
+
+.bai-ai-text {
+  min-width: 0;
+
+  color: #dce2e6;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+#bai-ai-inputbar {
+  flex: none;
+
+  padding: 12px 21px 14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #20272e,
+      #151a20
+    );
+
+  border-top: 1px solid #3b4650;
+}
+
+#bai-ai-form {
+  width: min(800px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 4px 5px 4px 10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0b0f13,
+      #161b20
+    );
+
+  border: 1px solid #06080a;
+  border-top-color: #5b6873;
+
+  box-shadow:
+    inset 0 1px 3px rgba(0,0,0,.7);
+}
+
+#bai-ai-form:focus-within {
+  border-top-color: #88a8bb;
+}
+
+#bai-ai-input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 9px 0;
+
+  color: #e5e9ec;
+
+  background: transparent;
+
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+}
+
+#bai-ai-input::placeholder {
+  color: #64717a;
+}
+
+#bai-ai-send {
+  width: 34px;
+  height: 34px;
+
+  flex: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #dce4e9;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      180deg,
+      #566572,
+      #3c4852 48%,
+      #303943 52%,
+      #272f36
+    );
+
+  border: 1px solid #07090c;
+  border-top-color: #7c8993;
+}
+
+#bai-ai-send:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+/* =========================================================
+   CHATROOM
+   ========================================================= */
+
+#bai-chatroom-mode {
+  display: none;
+}
+
+#bai-chatroom-sidebar {
+  width: 220px;
+
+  min-height: 0;
+
+  flex: none;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(
+      180deg,
+      #242b32,
+      #181e24
+    );
+
+  border-right: 1px solid #050607;
+}
+
+#bai-chatroom-heading {
+  padding: 13px 11px 9px;
+
+  color: #9aa5ae;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+#bai-chatroom-new {
+  margin: 2px 9px 11px;
+
+  padding: 8px 9px;
+
+  color: #e3e8eb;
+
+  background:
+    linear-gradient(
+      180deg,
+      #505d68,
+      #3b4751
+    );
+
+  border: 1px solid #080a0c;
+  border-top-color: #7b8791;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 11px;
+}
+
+#bai-chatrooms {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 0 7px 8px;
+}
+
+.bai-room {
+  width: 100%;
+
+  display: block;
+
+  margin-bottom: 4px;
+
+  padding: 8px;
+
+  color: #9da8b1;
+
+  background: transparent;
+
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 11px;
+}
+
+.bai-room:hover {
+  color: #e2e7ea;
+
+  background:
+    linear-gradient(
+      180deg,
+      #313a43,
+      #272f36
+    );
+
+  border-color: #38444e;
+}
+
+.bai-room.active {
+  color: #f1f4f6;
+
+  background:
+    linear-gradient(
+      180deg,
+      #46525e,
+      #303943
+    );
+
+  border: 1px solid #080a0c;
+  border-top-color: #7b8791;
+}
+
+#bai-chatroom-main {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#bai-chatroom-titlebar {
+  flex: none;
+
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 15px;
+
+  color: #cfd7dc;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2d363f,
+      #222a31
+    );
+
+  border-bottom: 1px solid #07090b;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+}
+
+#bai-chatroom-log {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 22px 26px;
+}
+
+#bai-chatroom-log-inner {
+  width: min(820px, 100%);
+
+  margin: 0 auto;
+}
+
+#bai-chatroom-empty {
+  margin-top: 85px;
+
+  color: #68747f;
+
+  text-align: center;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+}
+
+.bai-room-message {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.bai-room-time {
+  width: 49px;
+
+  flex: none;
+
+  color: #606c76;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+
+  padding-top: 2px;
+}
+
+.bai-room-user {
+  color: #8db1c7;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+
+  min-width: 70px;
+}
+
+.bai-room-content {
+  color: #dce2e6;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  word-break: break-word;
+}
+
+#bai-chatroom-inputbar {
+  flex: none;
+
+  padding: 12px 21px 14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #20272e,
+      #151a20
+    );
+
+  border-top: 1px solid #3b4650;
+}
+
+#bai-chatroom-form {
+  width: min(820px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+
+  gap: 8px;
+}
+
+#bai-chatroom-input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 10px 11px;
+
+  color: #e5e9ec;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0b0f13,
+      #161b20
+    );
+
+  border: 1px solid #06080a;
+  border-top-color: #5b6873;
+
+  outline: none;
+
+  font-size: 13px;
+}
+
+#bai-chatroom-input:focus {
+  border-top-color: #88a8bb;
+}
+
+#bai-chatroom-send {
+  width: 70px;
+
+  color: #dce4e9;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      180deg,
+      #566572,
+      #3b4852
+    );
+
+  border: 1px solid #07090c;
+  border-top-color: #7c8993;
+}
+
+#bai-chatroom-send:disabled {
+  opacity: .45;
+}
+
+/* =========================================================
+   PRIVATE ROOMS / DMS / MESSAGE ACTIONS
+   ========================================================= */
+
+#bai-chatroom-sidebar { overflow-y: auto; }
+
+.bai-chat-section-title {
+  padding: 11px 11px 7px;
+  color: #89959e;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .75px;
+}
+
+#bai-chatrooms, #bai-chatroom-invites, #bai-dms {
+  flex: none;
+  min-height: 0;
+  overflow: visible;
+  padding: 0 7px 6px;
+}
+
+#bai-dms { padding-bottom: 14px; }
+
+#bai-new-dm {
+  margin: 2px 9px 8px;
+  width: calc(100% - 18px);
+  padding: 7px 9px;
+  color: #e3e8eb;
+  background: linear-gradient(180deg, #505d68, #3b4751);
+  border: 1px solid #080a0c;
+  border-top-color: #7b8791;
+  cursor: pointer;
+  text-align: left;
+  font-size: 11px;
+}
+
+#bai-new-dm:hover { background: linear-gradient(180deg, #5e6d78, #43515c); }
+
+.bai-room-meta {
+  float: right;
+  color: #65717b;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+}
+
+.bai-room-row { display: flex; width: 100%; margin-bottom: 4px; }
+.bai-room-row .bai-room { flex: 1; min-width: 0; margin-bottom: 0; }
+
+.bai-invite-row, .bai-dm-row {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.bai-invite-button, .bai-dm-button {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 8px;
+  color: #aeb8bf;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bai-invite-button:hover, .bai-dm-button:hover {
+  color: #e1e6ea;
+  background: linear-gradient(180deg, #313a43, #272f36);
+  border-color: #38444e;
+}
+
+.bai-invite-action {
+  flex: none; width: 32px; color: #aeb8bf;
+  background: linear-gradient(180deg, #495660, #35404a);
+  border: 1px solid #080a0c; border-top-color: #73808a;
+  cursor: pointer; font-size: 10px;
+}
+
+.bai-invite-action:hover { color: #fff; background: linear-gradient(180deg, #5a6873, #424f59); }
+
+#bai-chatroom-titlebar { justify-content: space-between; gap: 12px; }
+#bai-chatroom-title-wrap { min-width: 0; display: flex; align-items: center; gap: 8px; }
+#bai-current-room-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#bai-current-chat-type { color: #707c85; font-size: 9px; text-transform: uppercase; }
+#bai-chatroom-title-actions { display: flex; gap: 5px; flex: none; }
+
+.bai-title-action {
+  padding: 5px 8px; color: #c9d1d6;
+  background: linear-gradient(180deg, #4d5a65, #35414a);
+  border: 1px solid #080a0c; border-top-color: #75828c;
+  cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+}
+.bai-title-action:hover { background: linear-gradient(180deg, #5d6b76, #43505a); }
+
+.bai-room-message, .bai-ai-row { position: relative; }
+
+.bai-message-delete {
+  flex: none; margin-left: auto; padding: 2px 5px;
+  color: #68747d; background: transparent; border: 1px solid transparent;
+  cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  opacity: 0; transition: opacity .12s ease;
+}
+.bai-room-message:hover .bai-message-delete, .bai-ai-row:hover .bai-message-delete { opacity: 1; }
+.bai-message-delete:hover { color: #e07f75; background: #2c2021; border-color: #543132; }
+
+/* =========================================================
+   CREATE ROOM MODAL
+   ========================================================= */
+
+#bai-room-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(5, 8, 11, .70);
+}
+
+#bai-room-modal.show {
+  display: flex;
+}
+
+#bai-room-modal-panel {
+  width: min(420px, 100%);
+
+  background:
+    linear-gradient(180deg, #39444e 0%, #2b343d 48%, #222a31 52%, #1a2026 100%);
+
+  border: 1px solid #07090b;
+  border-top-color: #7d8993;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.08),
+    0 14px 40px rgba(0,0,0,.65);
+}
+
+#bai-room-modal-titlebar {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 11px;
+
+  color: #e2e8ec;
+
+  background:
+    linear-gradient(180deg, #505d68, #3b4751 48%, #303a43 52%, #272f36);
+
+  border-bottom: 1px solid #080a0c;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+#bai-room-modal-body {
+  padding: 18px;
+}
+
+#bai-room-modal-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #a9b3ba;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+#bai-room-name-input {
+  width: 100%;
+
+  padding: 10px 11px;
+  margin-bottom: 15px;
+
+  color: #e6ebef;
+  background: #0b0f13;
+
+  border: 1px solid #07090b;
+  border-top-color: #586671;
+
+  outline: none;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+}
+
+#bai-room-name-input:focus {
+  border-top-color: #8aa8bb;
+}
+
+#bai-room-visibility-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #a9b3ba;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+#bai-room-visibility {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.bai-room-visibility-option {
+  position: relative;
+
+  padding: 11px;
+
+  color: #9ea9b1;
+
+  background:
+    linear-gradient(180deg, #252e36, #1c232a);
+
+  border: 1px solid #080a0c;
+  border-top-color: #4f5d68;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.bai-room-visibility-option:hover {
+  background:
+    linear-gradient(180deg, #313b44, #242d35);
+}
+
+.bai-room-visibility-option.selected {
+  color: #edf2f5;
+
+  background:
+    linear-gradient(180deg, #485661, #35414a);
+
+  border-top-color: #87959f;
+
+  box-shadow: inset 0 1px rgba(255,255,255,.08);
+}
+
+.bai-room-visibility-name {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.bai-room-visibility-desc {
+  display: block;
+
+  color: #7e8a94;
+
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.bai-room-visibility-option.selected .bai-room-visibility-desc {
+  color: #b7c1c8;
+}
+
+#bai-room-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+
+  margin-top: 17px;
+}
+
+#bai-room-modal-error {
+  min-height: 16px;
+
+  margin-top: 10px;
+
+  color: #d98980;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+}
+
+@media (max-width: 520px) {
+  #bai-room-visibility {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SCROLLBARS
+   ========================================================= */
+
+#bai-root ::-webkit-scrollbar {
+  width: 9px;
+}
+
+#bai-root ::-webkit-scrollbar-track {
+  background: #0b0e11;
+}
+
+#bai-root ::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      90deg,
+      #29323a,
+      #444f59,
+      #29323a
+    );
+
+  border: 1px solid #080a0c;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  #bai-root {
+    min-height: 420px;
+    height: calc(100vh - 70px);
+  }
+
+  #bai-ai-sidebar,
+  #bai-chatroom-sidebar {
+    width: 155px;
+  }
+
+  #bai-ai-log,
+  #bai-chatroom-log {
+    padding: 18px 13px;
+  }
+
+  #bai-model {
+    display: none;
+  }
+
+  .bai-room-user {
+    min-width: 55px;
+  }
+}
+
+/* =========================================================
+   TOP-LEVEL SECTION NAVIGATION
+   AI and CHAT are separate sections, not tabs buried in
+   the account controls.
+   ========================================================= */
+
+#bai-navigation {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+
+  height: 30px;
+
+  padding: 2px;
+
+  background: #171d23;
+  border: 1px solid #080a0c;
+  border-top-color: #53606b;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.04),
+    0 1px 2px rgba(0,0,0,.35);
+}
+
+.bai-nav-button {
+  min-width: 68px;
+  padding: 0 14px;
+
+  color: #9faab2;
+  background: transparent;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+.bai-nav-button:hover {
+  color: #e0e6ea;
+  background: linear-gradient(180deg, #303a43, #252e36);
+  border-color: #39454f;
+}
+
+.bai-nav-button.active {
+  color: #f0f3f5;
+  background:
+    linear-gradient(180deg, #52606b, #404c56 48%, #323d46 52%, #2b343c);
+  border: 1px solid #080a0c;
+  border-top-color: #87939d;
+  box-shadow: inset 0 1px rgba(255,255,255,.09);
+}
+
+#bai-section-label {
+  display: inline-block;
+  padding: 4px 7px;
+  color: #aeb9c0;
+  background: #20272e;
+  border: 1px solid #0a0c0f;
+  border-top-color: #596671;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .5px;
+}
+
+#bai-account-area.chat-mode #bai-model {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  #bai-navigation {
+    left: 50%;
+  }
+
+  .bai-nav-button {
+    min-width: 54px;
+    padding: 0 9px;
+  }
+
+  #bai-account-area {
+    gap: 6px;
+  }
+
+  #bai-username {
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+</style>
+
+
+<div id="bai-root">
+
+  
+
+  <div id="bai-login">
+
+    <div id="bai-login-panel">
+
+      <div id="bai-login-title">
+        bryairs-ai
+      </div>
+
+      <div id="bai-login-subtitle">
+        ACCOUNT LOGIN
+      </div>
+
+      <input id="bai-auth-email" class="bai-login-input" type="email" placeholder="email" autocomplete="email">
+
+      <input id="bai-auth-password" class="bai-login-input" type="password" placeholder="password" autocomplete="current-password">
+
+      <input id="bai-auth-username" class="bai-login-input" type="text" placeholder="username (new accounts)" autocomplete="username">
+
+      <div id="bai-login-buttons">
+
+        <button id="bai-auth-login" class="bai-login-button">
+          sign in
+        </button>
+
+        <button id="bai-auth-signup" class="bai-login-button">
+          create account
+        </button>
+
+      </div>
+
+      <div id="bai-login-status"></div>
+
+    </div>
+
+  </div>
+
+
+  
+
+  <div id="bai-app" style="display:none;">
+
+    <header id="bai-appbar">
+
+      <div id="bai-app-title">
+        <span id="bai-dot"></span>
+        <span>bryairs</span>
+      </div>
+
+      <nav id="bai-navigation" aria-label="Bryairs sections">
+        <button id="bai-ai-button" class="bai-nav-button active" type="button">
+          AI
+        </button>
+        <button id="bai-room-button" class="bai-nav-button" type="button">
+          CHAT
+        </button>
+      </nav>
+
+      <div id="bai-account-area">
+        <span id="bai-section-label">AI</span>
+        <span id="bai-username">@guest</span>
+        <span id="bai-model">qwen2.5-72b</span>
+        <button id="bai-logout">log out</button>
+      </div>
+
+    </header>
+
+
+    
+
+    <div id="bai-ai-mode">
+
+      <aside id="bai-ai-sidebar">
+
+        <div id="bai-sidebar-heading">
+          conversations
+        </div>
+
+        <button id="bai-new-chat">
+          + new conversation
+        </button>
+
+        <div id="bai-conversations"></div>
+
+      </aside>
+
+
+      <section id="bai-ai-chat">
+
+        <main id="bai-ai-log">
+
+          <div id="bai-ai-log-inner"></div>
+
+          <div id="bai-ai-empty">
+            no messages yet — say something below
+          </div>
+
+        </main>
+
+
+        <div id="bai-ai-inputbar">
+
+          <form id="bai-ai-form">
+
+            <span style="
+              color:#d27b3e;
+              font-family:'IBM Plex Mono',monospace;
+              font-size:14px;
+            ">
+              &gt;
+            </span>
+
+            <input id="bai-ai-input" type="text" placeholder="ask something" autocomplete="off">
+
+            <button id="bai-ai-send" type="submit">
+
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+
+              </svg>
+
+            </button>
+
+          </form>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    
+
+    <div id="bai-chatroom-mode">
+
+      <aside id="bai-chatroom-sidebar">
+
+        <div id="bai-chatroom-heading">
+          chatrooms
+        </div>
+
+        <button id="bai-chatroom-new">
+          + create room
+        </button>
+
+        <div class="bai-chat-section-title">rooms</div>
+        <div id="bai-chatrooms"></div>
+
+        <div class="bai-chat-section-title">invitations</div>
+        <div id="bai-chatroom-invites"></div>
+
+        <div class="bai-chat-section-title">direct messages</div>
+        <button id="bai-new-dm">+ new message</button>
+        <div id="bai-dms"></div>
+
+      </aside>
+
+
+      <section id="bai-chatroom-main">
+
+        <div id="bai-chatroom-titlebar">
+          <div id="bai-chatroom-title-wrap">
+            <span id="bai-current-room-title">no room selected</span>
+            <span id="bai-current-chat-type"></span>
+          </div>
+
+          <div id="bai-chatroom-title-actions">
+            <button id="bai-room-invite" class="bai-title-action">invite</button>
+            <button id="bai-room-leave" class="bai-title-action">leave</button>
+          </div>
+        </div>
+
+
+        <main id="bai-chatroom-log">
+
+          <div id="bai-chatroom-log-inner"></div>
+
+          <div id="bai-chatroom-empty">
+            select a room to start chatting
+          </div>
+
+        </main>
+
+
+        <div id="bai-chatroom-inputbar">
+
+          <form id="bai-chatroom-form">
+
+            <input id="bai-chatroom-input" type="text" placeholder="type a message..." autocomplete="off" disabled="">
+
+            <button id="bai-chatroom-send" type="submit" disabled="">
+              send
+            </button>
+
+          </form>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  
+
+  <div id="bai-room-modal" aria-hidden="true">
+    <div id="bai-room-modal-panel" role="dialog" aria-modal="true" aria-labelledby="bai-room-modal-title">
+
+      <div id="bai-room-modal-titlebar">
+        create chatroom
+      </div>
+
+      <div id="bai-room-modal-body">
+
+        <label id="bai-room-modal-label" for="bai-room-name-input">
+          room name
+        </label>
+
+        <input id="bai-room-name-input" type="text" maxlength="40" placeholder="friends, gaming, etc." autocomplete="off">
+
+        <span id="bai-room-visibility-label">
+          visibility
+        </span>
+
+        <div id="bai-room-visibility">
+
+          <button type="button" class="bai-room-visibility-option selected" data-private="false">
+            <span class="bai-room-visibility-name">
+              public room
+            </span>
+            <span class="bai-room-visibility-desc">
+              anyone can join this room
+            </span>
+          </button>
+
+          <button type="button" class="bai-room-visibility-option" data-private="true">
+            <span class="bai-room-visibility-name">
+              private room
+            </span>
+            <span class="bai-room-visibility-desc">
+              invite-only; people must be invited
+            </span>
+          </button>
+
+        </div>
+
+        <div id="bai-room-modal-error"></div>
+
+        <div id="bai-room-modal-actions">
+          <button type="button" id="bai-room-modal-cancel" class="bai-slate-button">
+            cancel
+          </button>
+
+          <button type="button" id="bai-room-modal-create" class="bai-slate-button">
+            create room
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+(function () {
+
+  /* ========================================================
+     CONFIG
+     ======================================================== */
+
+  const SUPABASE_URL =
+    "";
+
+  const SUPABASE_KEY =
+    ";
+
+  const HF_TOKEN =
+    "";
+
+  const MODEL_NAME =
+    "Qwen/Qwen2.5-72B-Instruct";
+
+
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+
+  /* ========================================================
+     GLOBAL STATE
+     ======================================================== */
+
+  let currentUser = null;
+
+  let currentProfile = null;
+
+  let currentConversation = null;
+
+  let conversations = [];
+
+  let aiHistory = [];
+
+  let chatrooms = [];
+
+  let currentRoom = null;
+
+  let realtimeChannel = null;
+
+
+  /* ========================================================
+     ELEMENTS
+     ======================================================== */
+
+  const login =
+    document.getElementById(
+      "bai-login"
+    );
+
+  const app =
+    document.getElementById(
+      "bai-app"
+    );
+
+  const usernameDisplay =
+    document.getElementById(
+      "bai-username"
+    );
+
+  const logoutButton =
+    document.getElementById(
+      "bai-logout"
+    );
+
+
+  /* ========================================================
+     AUTH
+     ======================================================== */
+
+  async function getCurrentUser() {
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth.getUser();
+
+    if (error) {
+
+      console.error(
+        "Auth error:",
+        error
+      );
+
+      return null;
+    }
+
+    return data.user;
+  }
+
+
+  async function loadProfile() {
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("profiles")
+        .select("*")
+        .eq(
+          "id",
+          currentUser.id
+        )
+        .single();
+
+    if (error) {
+
+      console.error(
+        "Profile error:",
+        error
+      );
+
+      return null;
+    }
+
+    return data;
+  }
+
+
+  /* ========================================================
+     LOGIN
+     ======================================================== */
+
+  document
+    .getElementById("bai-auth-login")
+    .onclick =
+      async function () {
+
+        const email =
+          document
+            .getElementById(
+              "bai-auth-email"
+            )
+            .value
+            .trim();
+
+        const password =
+          document
+            .getElementById(
+              "bai-auth-password"
+            )
+            .value;
+
+        const status =
+          document.getElementById(
+            "bai-login-status"
+          );
+
+
+        if (
+          !email ||
+          !password
+        ) {
+
+          status.textContent =
+            "enter your email and password";
+
+          return;
+        }
+
+
+        status.textContent =
+          "signing in...";
+
+
+        const {
+          error
+        } =
+          await supabaseClient.auth
+            .signInWithPassword({
+
+              email:
+                email,
+
+              password:
+                password
+
+            });
+
+
+        if (error) {
+
+          status.textContent =
+            error.message;
+
+          return;
+        }
+
+
+        location.reload();
+
+      };
+
+
+  /* ========================================================
+     SIGN UP
+     ======================================================== */
+
+  document
+    .getElementById("bai-auth-signup")
+    .onclick =
+      async function () {
+
+        const email =
+          document
+            .getElementById(
+              "bai-auth-email"
+            )
+            .value
+            .trim();
+
+        const password =
+          document
+            .getElementById(
+              "bai-auth-password"
+            )
+            .value;
+
+        const username =
+          document
+            .getElementById(
+              "bai-auth-username"
+            )
+            .value
+            .trim();
+
+        const status =
+          document.getElementById(
+            "bai-login-status"
+          );
+
+
+        if (
+          !email ||
+          !password ||
+          !username
+        ) {
+
+          status.textContent =
+            "enter email, password, and username";
+
+          return;
+        }
+
+
+        if (
+          username.length < 2
+        ) {
+
+          status.textContent =
+            "username is too short";
+
+          return;
+        }
+
+
+        status.textContent =
+          "creating account...";
+
+
+        const {
+          data,
+          error
+        } =
+          await supabaseClient.auth
+            .signUp({
+
+              email:
+                email,
+
+              password:
+                password,
+
+              options: {
+
+                data: {
+
+                  username:
+                    username
+
+                }
+
+              }
+
+            });
+
+
+        if (error) {
+
+          status.textContent =
+            error.message;
+
+          return;
+        }
+
+
+        if (!data.user) {
+
+          status.textContent =
+            "account creation failed";
+
+          return;
+        }
+
+
+        if (data.session) {
+
+          location.reload();
+
+        } else {
+
+          status.textContent =
+            "account created — check your email";
+
+        }
+
+      };
+
+
+  /* ========================================================
+     LOGOUT
+     ======================================================== */
+
+  logoutButton.onclick =
+    async function () {
+
+      if (realtimeChannel) {
+
+        await supabaseClient
+          .removeChannel(
+            realtimeChannel
+          );
+
+      }
+
+      await supabaseClient.auth.signOut();
+
+      location.reload();
+
+    };
+
+
+  /* ========================================================
+     AI MODE
+     ======================================================== */
+
+  const aiMode =
+    document.getElementById(
+      "bai-ai-mode"
+    );
+
+  const roomMode =
+    document.getElementById(
+      "bai-chatroom-mode"
+    );
+
+  const aiButton =
+    document.getElementById(
+      "bai-ai-button"
+    );
+
+  const roomButton =
+    document.getElementById(
+      "bai-room-button"
+    );
+
+
+  function showAIMode() {
+
+    aiMode.style.display =
+      "flex";
+
+    roomMode.style.display =
+      "none";
+
+    aiButton.classList.add(
+      "active"
+    );
+
+    roomButton.classList.remove(
+      "active"
+    );
+
+    document.getElementById("bai-section-label").textContent = "AI";
+    document.getElementById("bai-account-area").classList.remove("chat-mode");
+
+  }
+
+
+  function showRoomMode() {
+
+    aiMode.style.display =
+      "none";
+
+    roomMode.style.display =
+      "flex";
+
+    aiButton.classList.remove(
+      "active"
+    );
+
+    roomButton.classList.add(
+      "active"
+    );
+
+    document.getElementById("bai-section-label").textContent = "CHAT";
+    document.getElementById("bai-account-area").classList.add("chat-mode");
+
+  }
+
+
+  aiButton.onclick =
+    showAIMode;
+
+  roomButton.onclick =
+    async function () {
+
+      showRoomMode();
+
+      await refreshSocialData();
+
+    };
+
+
+  /* ========================================================
+     AI CONVERSATIONS
+     ======================================================== */
+
+  const conversationsList =
+    document.getElementById(
+      "bai-conversations"
+    );
+
+  const newChatButton =
+    document.getElementById(
+      "bai-new-chat"
+    );
+
+  const aiLog =
+    document.getElementById(
+      "bai-ai-log"
+    );
+
+  const aiLogInner =
+    document.getElementById(
+      "bai-ai-log-inner"
+    );
+
+  const aiEmpty =
+    document.getElementById(
+      "bai-ai-empty"
+    );
+
+  const aiForm =
+    document.getElementById(
+      "bai-ai-form"
+    );
+
+  const aiInput =
+    document.getElementById(
+      "bai-ai-input"
+    );
+
+  const aiSend =
+    document.getElementById(
+      "bai-ai-send"
+    );
+
+
+  async function loadConversations() {
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("conversations")
+        .select("*")
+        .eq(
+          "user_id",
+          currentUser.id
+        )
+        .order(
+          "created_at",
+          {
+            ascending: false
+          }
+        );
+
+
+    if (error) {
+
+      console.error(
+        "Conversations:",
+        error
+      );
+
+      return [];
+    }
+
+
+    return data || [];
+  }
+
+
+  function renderConversations() {
+
+    conversationsList.innerHTML =
+      "";
+
+
+    conversations.forEach(
+      function (conversation) {
+
+        const item =
+          document.createElement(
+            "div"
+          );
+
+        item.className =
+          "bai-conversation-item";
+
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+        button.className =
+          "bai-conversation";
+
+
+        if (
+          currentConversation &&
+          conversation.id ===
+          currentConversation.id
+        ) {
+
+          item.classList.add(
+            "active"
+          );
+
+          button.classList.add(
+            "active"
+          );
+
+        }
+
+
+        button.textContent =
+          conversation.title ||
+          "New chat";
+
+        button.title =
+          conversation.title ||
+          "New chat";
+
+
+        button.onclick =
+          async function () {
+
+            await selectConversation(
+              conversation
+            );
+
+          };
+
+
+        const deleteButton =
+          document.createElement(
+            "button"
+          );
+
+        deleteButton.className =
+          "bai-conversation-delete";
+
+        deleteButton.type =
+          "button";
+
+        deleteButton.textContent =
+          "×";
+
+        deleteButton.title =
+          "Delete conversation";
+
+        deleteButton.setAttribute(
+          "aria-label",
+          "Delete conversation"
+        );
+
+
+        deleteButton.onclick =
+          async function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            await deleteConversation(
+              conversation
+            );
+
+          };
+
+
+        item.appendChild(button);
+        item.appendChild(deleteButton);
+
+        conversationsList.appendChild(item);
+
+      }
+    );
+  }
+
+
+  async function deleteConversation(conversation) {
+
+    const title =
+      conversation.title ||
+      "New chat";
+
+    const confirmed =
+      confirm(
+        'Delete "' + title + '"?\n\nThis will permanently delete the conversation and its messages.'
+      );
+
+    if (!confirmed) {
+      return;
+    }
+
+    const wasCurrent =
+      currentConversation &&
+      currentConversation.id === conversation.id;
+
+    const { error } =
+      await supabaseClient
+        .from("conversations")
+        .delete()
+        .eq("id", conversation.id)
+        .eq("user_id", currentUser.id);
+
+    if (error) {
+      console.error("Delete conversation:", error);
+
+      alert(
+        "Could not delete conversation:\n" +
+        error.message
+      );
+
+      return;
+    }
+
+    conversations =
+      conversations.filter(
+        function (item) {
+          return item.id !== conversation.id;
+        }
+      );
+
+    if (wasCurrent) {
+
+      currentConversation = null;
+      aiHistory = [];
+
+      aiLogInner.innerHTML = "";
+      aiEmpty.textContent =
+        "no messages yet — say something below";
+      aiEmpty.style.display = "block";
+
+      if (conversations.length > 0) {
+        await selectConversation(
+          conversations[0]
+        );
+      } else {
+        await createConversation();
+      }
+
+    } else {
+      renderConversations();
+    }
+  }
+
+
+  async function createConversation() {
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("conversations")
+        .insert({
+
+          user_id:
+            currentUser.id,
+
+          title:
+            "New chat"
+
+        })
+        .select()
+        .single();
+
+
+    if (error) {
+
+      console.error(error);
+
+      alert(
+        error.message
+      );
+
+      return null;
+    }
+
+
+    conversations.unshift(
+      data
+    );
+
+
+    await selectConversation(
+      data
+    );
+
+
+    return data;
+  }
+
+
+  async function selectConversation(
+    conversation
+  ) {
+
+    currentConversation =
+      conversation;
+
+    aiHistory = [];
+
+
+    aiLogInner.innerHTML =
+      "";
+
+    aiEmpty.style.display =
+      "none";
+
+
+    renderConversations();
+
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("messages")
+        .select("*")
+        .eq(
+          "conversation_id",
+          conversation.id
+        )
+        .order(
+          "created_at",
+          {
+            ascending: true
+          }
+        );
+
+
+    if (error) {
+
+      console.error(error);
+
+      aiEmpty.textContent =
+        "error loading conversation";
+
+      aiEmpty.style.display =
+        "block";
+
+      return;
+    }
+
+
+    data.forEach(
+      function (message) {
+
+        addAIRow(
+          message.role,
+          message.content
+        );
+
+
+        aiHistory.push({
+
+          role:
+            message.role,
+
+          content:
+            message.content
+
+        });
+
+      }
+    );
+
+
+    if (
+      data.length === 0
+    ) {
+
+      aiEmpty.textContent =
+        "no messages yet — say something below";
+
+      aiEmpty.style.display =
+        "block";
+
+    }
+
+
+    aiLog.scrollTop =
+      aiLog.scrollHeight;
+  }
+
+
+  function addAIRow(
+    role,
+    text
+  ) {
+
+    const row =
+      document.createElement(
+        "div"
+      );
+
+    row.className =
+      "bai-ai-row " +
+      (
+        role === "user"
+          ? "you"
+          : "ai"
+      );
+
+
+    const tag =
+      document.createElement(
+        "div"
+      );
+
+    tag.className =
+      "bai-ai-tag";
+
+    tag.textContent =
+      role === "user"
+        ? "you"
+        : "ai";
+
+
+    const body =
+      document.createElement(
+        "div"
+      );
+
+    body.className =
+      "bai-ai-text";
+
+    body.textContent =
+      text;
+
+
+    row.appendChild(tag);
+
+    row.appendChild(body);
+
+    aiLogInner.appendChild(
+      row
+    );
+
+
+    aiLog.scrollTop =
+      aiLog.scrollHeight;
+
+
+    return body;
+  }
+
+
+  async function saveAIMessage(
+    role,
+    content
+  ) {
+
+    const {
+      error
+    } =
+      await supabaseClient
+        .from("messages")
+        .insert({
+
+          conversation_id:
+            currentConversation.id,
+
+          role:
+            role,
+
+          content:
+            content
+
+        });
+
+
+    if (error) {
+
+      throw error;
+    }
+  }
+
+
+  async function updateAIConversationTitle(
+    text
+  ) {
+
+    if (
+      !currentConversation ||
+      currentConversation.title !==
+      "New chat"
+    ) {
+
+      return;
+    }
+
+
+    const title =
+      text.length > 34
+        ? text.substring(
+            0,
+            34
+          ) + "..."
+        : text;
+
+
+    const {
+      error
+    } =
+      await supabaseClient
+        .from("conversations")
+        .update({
+
+          title:
+            title
+
+        })
+        .eq(
+          "id",
+          currentConversation.id
+        );
+
+
+    if (error) {
+
+      console.error(error);
+
+      return;
+    }
+
+
+    currentConversation.title =
+      title;
+
+
+    const found =
+      conversations.find(
+        function (item) {
+
+          return (
+            item.id ===
+            currentConversation.id
+          );
+
+        }
+      );
+
+
+    if (found) {
+
+      found.title =
+        title;
+
+    }
+
+
+    renderConversations();
+  }
+
+
+  aiForm.addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      const text =
+        aiInput.value.trim();
+
+
+      if (!text) {
+        return;
+      }
+
+
+      if (!currentConversation) {
+
+        await createConversation();
+
+      }
+
+
+      if (!currentConversation) {
+        return;
+      }
+
+
+      aiInput.disabled =
+        true;
+
+      aiSend.disabled =
+        true;
+
+
+      addAIRow(
+        "user",
+        text
+      );
+
+
+      aiInput.value =
+        "";
+
+
+      aiHistory.push({
+
+        role:
+          "user",
+
+        content:
+          text
+
+      });
+
+
+      try {
+
+        await saveAIMessage(
+          "user",
+          text
+        );
+
+
+        await updateAIConversationTitle(
+          text
+        );
+
+
+        const aiBody =
+          addAIRow(
+            "assistant",
+            ""
+          );
+
+
+        const response =
+          await fetch(
+            "https://router.huggingface.co/v1/chat/completions",
+            {
+
+              method:
+                "POST",
+
+              headers: {
+
+                "Authorization":
+                  `Bearer ${HF_TOKEN}`,
+
+                "Content-Type":
+                  "application/json"
+
+              },
+
+              body:
+                JSON.stringify({
+
+                  model:
+                    MODEL_NAME,
+
+                  messages:
+                    aiHistory,
+
+                  max_tokens:
+                    2500,
+
+                  stream:
+                    false
+
+                })
+
+            }
+          );
+
+
+        const data =
+          await response.json();
+
+
+        if (
+          !response.ok ||
+          !data.choices ||
+          !data.choices[0] ||
+          !data.choices[0].message
+        ) {
+
+          throw new Error(
+            data.error?.message ||
+            data.error ||
+            "AI request failed"
+          );
+
+        }
+
+
+        const answer =
+          data.choices[0].message.content;
+
+
+        aiBody.textContent =
+          answer;
+
+
+        aiHistory.push({
+
+          role:
+            "assistant",
+
+          content:
+            answer
+
+        });
+
+
+        await saveAIMessage(
+          "assistant",
+          answer
+        );
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        const rows =
+          aiLogInner.querySelectorAll(
+            ".bai-ai-row.ai"
+          );
+
+
+        const last =
+          rows[rows.length - 1];
+
+
+        if (last) {
+
+          const textElement =
+            last.querySelector(
+              ".bai-ai-text"
+            );
+
+
+          if (textElement) {
+
+            textElement.textContent =
+              "error: " +
+              error.message;
+
+          }
+
+        }
+
+      } finally {
+
+        aiInput.disabled =
+          false;
+
+        aiSend.disabled =
+          false;
+
+        aiInput.focus();
+
+      }
+
+    }
+  );
+
+
+  newChatButton.onclick =
+    createConversation;
+
+
+  /* ========================================================
+     CHATROOMS + DIRECT MESSAGES
+     ======================================================== */
+
+  const chatroomsList = document.getElementById("bai-chatrooms");
+  const invitesList = document.getElementById("bai-chatroom-invites");
+  const dmsList = document.getElementById("bai-dms");
+  const newRoomButton = document.getElementById("bai-chatroom-new");
+  const newDMButton = document.getElementById("bai-new-dm");
+  const roomTitle = document.getElementById("bai-current-room-title");
+  const chatTypeLabel = document.getElementById("bai-current-chat-type");
+  const roomInviteButton = document.getElementById("bai-room-invite");
+  const roomLeaveButton = document.getElementById("bai-room-leave");
+  const roomLog = document.getElementById("bai-chatroom-log");
+  const roomLogInner = document.getElementById("bai-chatroom-log-inner");
+  const roomEmpty = document.getElementById("bai-chatroom-empty");
+  const roomForm = document.getElementById("bai-chatroom-form");
+  const roomInput = document.getElementById("bai-chatroom-input");
+  const roomSend = document.getElementById("bai-chatroom-send");
+
+  let currentDM = null;
+  let chatMode = null; // room | dm
+  let dmConversations = [];
+  const profileCache = new Map();
+
+  async function getUsername(userId) {
+    if (profileCache.has(userId)) return profileCache.get(userId);
+
+    const { data } = await supabaseClient
+      .from("profiles")
+      .select("username")
+      .eq("id", userId)
+      .maybeSingle();
+
+    const username = data?.username || "user";
+    profileCache.set(userId, username);
+    return username;
+  }
+
+  async function loadChatrooms() {
+    const { data, error } = await supabaseClient
+      .from("chatrooms")
+      .select("*")
+      .order("created_at", { ascending: true });
+
+    if (error) {
+      console.error("Rooms:", error);
+      return;
+    }
+
+    chatrooms = data || [];
+    renderChatrooms();
+
+    if (chatMode === "dm") return;
+
+    if (!chatrooms.length) {
+      currentRoom = null;
+      clearRoomView("no rooms yet — create one below");
+      return;
+    }
+
+    if (!currentRoom || !chatrooms.some(r => r.id === currentRoom.id)) {
+      await joinAndSelectRoom(chatrooms[0]);
+    }
+  }
+
+  function renderChatrooms() {
+    chatroomsList.innerHTML = "";
+
+    chatrooms.forEach(room => {
+      const row = document.createElement("div");
+      row.className = "bai-room-row";
+
+      const button = document.createElement("button");
+      button.className = "bai-room";
+
+      if (chatMode === "room" && currentRoom?.id === room.id) {
+        button.classList.add("active");
+      }
+
+      button.textContent = "# " + room.name;
+      button.title = room.is_private ? "Private room" : "Public room";
+
+      const meta = document.createElement("span");
+      meta.className = "bai-room-meta";
+      meta.textContent = room.is_private ? "lock" : "";
+      button.appendChild(meta);
+
+      button.onclick = async () => await joinAndSelectRoom(room);
+
+      row.appendChild(button);
+      chatroomsList.appendChild(row);
+    });
+  }
+
+  async function loadRoomInvites() {
+    const { data, error } = await supabaseClient
+      .from("chatroom_invites")
+      .select("id, chatroom_id, inviter_id, invitee_id, created_at, chatrooms(name, is_private)")
+      .eq("invitee_id", currentUser.id)
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Invites:", error);
+      return;
+    }
+
+    invitesList.innerHTML = "";
+
+    if (!data || data.length === 0) {
+      const empty = document.createElement("div");
+      empty.style.cssText = "padding:4px 9px 8px;color:#68747f;font:9px 'IBM Plex Mono',monospace;";
+      empty.textContent = "none";
+      invitesList.appendChild(empty);
+      return;
+    }
+
+    for (const invite of data) {
+      const row = document.createElement("div");
+      row.className = "bai-invite-row";
+
+      const inviter = await getUsername(invite.inviter_id);
+
+      const accept = document.createElement("button");
+      accept.className = "bai-invite-button";
+      accept.textContent = "# " + (invite.chatrooms?.name || "room") + " · " + inviter;
+      accept.title = "Accept invitation";
+
+      accept.onclick = async () => {
+        const { error: joinError } = await supabaseClient
+          .from("chatroom_members")
+          .upsert({
+            chatroom_id: invite.chatroom_id,
+            user_id: currentUser.id
+          }, {
+            onConflict: "chatroom_id,user_id",
+            ignoreDuplicates: true
+          });
+
+        if (joinError) {
+          alert("Could not join room:\n" + joinError.message);
+          return;
+        }
+
+        await supabaseClient
+          .from("chatroom_invites")
+          .delete()
+          .eq("id", invite.id)
+          .eq("invitee_id", currentUser.id);
+
+        await loadRoomInvites();
+        await loadChatrooms();
+
+        const room = chatrooms.find(r => r.id === invite.chatroom_id);
+        if (room) await joinAndSelectRoom(room);
+      };
+
+      const decline = document.createElement("button");
+      decline.className = "bai-invite-action";
+      decline.textContent = "×";
+      decline.title = "Decline invitation";
+
+      decline.onclick = async () => {
+        const { error } = await supabaseClient
+          .from("chatroom_invites")
+          .delete()
+          .eq("id", invite.id)
+          .eq("invitee_id", currentUser.id);
+
+        if (error) {
+          alert(error.message);
+          return;
+        }
+
+        await loadRoomInvites();
+      };
+
+      row.appendChild(accept);
+      row.appendChild(decline);
+      invitesList.appendChild(row);
+    }
+  }
+
+  async function loadDms() {
+    const { data, error } = await supabaseClient
+      .from("dm_conversations")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("DMs:", error);
+      return;
+    }
+
+    dmConversations = data || [];
+    await renderDms();
+  }
+
+  async function renderDms() {
+    dmsList.innerHTML = "";
+
+    if (!dmConversations.length) {
+      const empty = document.createElement("div");
+      empty.style.cssText = "padding:4px 9px 8px;color:#68747f;font:9px 'IBM Plex Mono',monospace;";
+      empty.textContent = "none";
+      dmsList.appendChild(empty);
+      return;
+    }
+
+    for (const dm of dmConversations) {
+      const otherId = dm.user1_id === currentUser.id ? dm.user2_id : dm.user1_id;
+      const username = await getUsername(otherId);
+
+      const row = document.createElement("div");
+      row.className = "bai-dm-row";
+
+      const button = document.createElement("button");
+      button.className = "bai-dm-button";
+      button.textContent = "@" + username;
+      button.title = "Message " + username;
+
+      if (chatMode === "dm" && currentDM?.id === dm.id) {
+        button.classList.add("active");
+      }
+
+      button.onclick = async () => await selectDM(dm);
+
+      row.appendChild(button);
+      dmsList.appendChild(row);
+    }
+  }
+
+  async function createConversationWithUser(targetId) {
+    let user1 = currentUser.id;
+    let user2 = targetId;
+
+    if (user1 > user2) [user1, user2] = [user2, user1];
+
+    let { data, error } = await supabaseClient
+      .from("dm_conversations")
+      .select("*")
+      .eq("user1_id", user1)
+      .eq("user2_id", user2)
+      .maybeSingle();
+
+    if (!data && !error) {
+      ({ data, error } = await supabaseClient
+        .from("dm_conversations")
+        .insert({ user1_id: user1, user2_id: user2 })
+        .select()
+        .single());
+    }
+
+    if (error?.code === "23505") {
+      const result = await supabaseClient
+        .from("dm_conversations")
+        .select("*")
+        .eq("user1_id", user1)
+        .eq("user2_id", user2)
+        .maybeSingle();
+      data = result.data;
+      error = result.error;
+    }
+
+    if (error || !data) {
+      alert("Could not create private message:\n" + (error?.message || "Unknown error"));
+      return null;
+    }
+
+    if (!dmConversations.some(dm => dm.id === data.id)) {
+      dmConversations.unshift(data);
+    }
+
+    await renderDms();
+    return data;
+  }
+
+  newDMButton.onclick = async () => {
+    const username = prompt("Username to message:");
+    if (!username || !username.trim()) return;
+
+    const { data, error } = await supabaseClient
+      .from("profiles")
+      .select("id, username")
+      .eq("username", username.trim())
+      .maybeSingle();
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    if (!data) {
+      alert("No user found with that username.");
+      return;
+    }
+
+    if (data.id === currentUser.id) {
+      alert("You cannot message yourself.");
+      return;
+    }
+
+    const dm = await createConversationWithUser(data.id);
+    if (dm) await selectDM(dm);
+  };
+
+  async function joinAndSelectRoom(room) {
+    const { error } = await supabaseClient
+      .from("chatroom_members")
+      .upsert({
+        chatroom_id: room.id,
+        user_id: currentUser.id
+      }, {
+        onConflict: "chatroom_id,user_id",
+        ignoreDuplicates: true
+      });
+
+    if (error) {
+      console.error("Join room:", error);
+      roomTitle.textContent = "could not join room";
+      return;
+    }
+
+    if (realtimeChannel) {
+      await supabaseClient.removeChannel(realtimeChannel);
+      realtimeChannel = null;
+    }
+
+    currentRoom = room;
+    currentDM = null;
+    chatMode = "room";
+
+    renderChatrooms();
+    await renderDms();
+
+    roomTitle.textContent = "# " + room.name;
+    chatTypeLabel.textContent = room.is_private ? "private" : "public";
+    roomInviteButton.style.display = "inline-block";
+    roomLeaveButton.style.display = "inline-block";
+
+    roomInput.placeholder = "type a message...";
+    roomInput.disabled = false;
+    roomSend.disabled = false;
+
+    await loadRoomMessages();
+    await startRealtime();
+    roomInput.focus();
+  }
+
+  async function selectDM(dm) {
+    if (realtimeChannel) {
+      await supabaseClient.removeChannel(realtimeChannel);
+      realtimeChannel = null;
+    }
+
+    currentDM = dm;
+    currentRoom = null;
+    chatMode = "dm";
+
+    renderChatrooms();
+    await renderDms();
+
+    const otherId = dm.user1_id === currentUser.id ? dm.user2_id : dm.user1_id;
+    const username = await getUsername(otherId);
+
+    roomTitle.textContent = "@" + username;
+    chatTypeLabel.textContent = "direct";
+    roomInviteButton.style.display = "none";
+    roomLeaveButton.style.display = "none";
+
+    roomInput.placeholder = "message @" + username + "...";
+    roomInput.disabled = false;
+    roomSend.disabled = false;
+
+    await loadDMMessages();
+    await startRealtime();
+    roomInput.focus();
+  }
+
+  function clearRoomView(message) {
+    roomLogInner.innerHTML = "";
+    roomEmpty.textContent = message;
+    roomEmpty.style.display = "block";
+    roomTitle.textContent = "nothing selected";
+    chatTypeLabel.textContent = "";
+    roomInviteButton.style.display = "none";
+    roomLeaveButton.style.display = "none";
+    roomInput.disabled = true;
+    roomSend.disabled = true;
+  }
+
+  async function loadRoomMessages() {
+    if (!currentRoom) return;
+
+    roomLogInner.innerHTML = "";
+    roomEmpty.style.display = "none";
+
+    const { data, error } = await supabaseClient
+      .from("chatroom_messages")
+      .select("*")
+      .eq("chatroom_id", currentRoom.id)
+      .order("created_at", { ascending: true });
+
+    if (error) {
+      console.error("Room messages:", error);
+      roomEmpty.textContent = "error loading messages";
+      roomEmpty.style.display = "block";
+      return;
+    }
+
+    if (!data || !data.length) {
+      roomEmpty.textContent = "no messages yet — start the conversation";
+      roomEmpty.style.display = "block";
+      return;
+    }
+
+    for (const message of data) await addRoomMessage(message, "room");
+    roomLog.scrollTop = roomLog.scrollHeight;
+  }
+
+  async function loadDMMessages() {
+    if (!currentDM) return;
+
+    roomLogInner.innerHTML = "";
+    roomEmpty.style.display = "none";
+
+    const { data, error } = await supabaseClient
+      .from("dm_messages")
+      .select("*")
+      .eq("conversation_id", currentDM.id)
+      .order("created_at", { ascending: true });
+
+    if (error) {
+      console.error("DM messages:", error);
+      roomEmpty.textContent = "error loading private messages";
+      roomEmpty.style.display = "block";
+      return;
+    }
+
+    if (!data || !data.length) {
+      roomEmpty.textContent = "no private messages yet";
+      roomEmpty.style.display = "block";
+      return;
+    }
+
+    for (const message of data) await addRoomMessage(message, "dm");
+    roomLog.scrollTop = roomLog.scrollHeight;
+  }
+
+  async function addRoomMessage(message, type) {
+    roomEmpty.style.display = "none";
+
+    const row = document.createElement("div");
+    row.className = "bai-room-message";
+    row.dataset.messageId = String(message.id);
+    row.dataset.messageType = type;
+
+    const time = document.createElement("div");
+    time.className = "bai-room-time";
+    time.textContent = new Date(message.created_at).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+
+    const user = document.createElement("div");
+    user.className = "bai-room-user";
+    user.textContent = await getUsername(message.user_id);
+
+    const content = document.createElement("div");
+    content.className = "bai-room-content";
+    content.textContent = message.content;
+
+    row.appendChild(time);
+    row.appendChild(user);
+    row.appendChild(content);
+
+    if (message.user_id === currentUser.id) {
+      const del = document.createElement("button");
+      del.className = "bai-message-delete";
+      del.type = "button";
+      del.textContent = "×";
+      del.title = "Delete message";
+
+      del.onclick = async event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const table = type === "room" ? "chatroom_messages" : "dm_messages";
+
+        const { error } = await supabaseClient
+          .from(table)
+          .delete()
+          .eq("id", message.id)
+          .eq("user_id", currentUser.id);
+
+        if (error) {
+          alert("Could not delete message:\n" + error.message);
+          return;
+        }
+
+        row.remove();
+      };
+
+      row.appendChild(del);
+    }
+
+    roomLogInner.appendChild(row);
+    roomLog.scrollTop = roomLog.scrollHeight;
+  }
+
+  async function startRealtime() {
+    if (!chatMode) return;
+
+    if (realtimeChannel) {
+      await supabaseClient.removeChannel(realtimeChannel);
+      realtimeChannel = null;
+    }
+
+    const table = chatMode === "room" ? "chatroom_messages" : "dm_messages";
+    const filter = chatMode === "room"
+      ? "chatroom_id=eq." + currentRoom.id
+      : "conversation_id=eq." + currentDM.id;
+
+    realtimeChannel = supabaseClient
+      .channel(
+        "bai-" + chatMode + "-" +
+        (chatMode === "room" ? currentRoom.id : currentDM.id) +
+        "-" + currentUser.id
+      )
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table, filter },
+        async payload => {
+          if (chatMode === "room" && currentRoom?.id !== payload.new.chatroom_id) return;
+          if (chatMode === "dm" && currentDM?.id !== payload.new.conversation_id) return;
+          await addRoomMessage(payload.new, chatMode);
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "DELETE", schema: "public", table, filter },
+        payload => {
+          const id = String(payload.old?.id ?? "");
+          if (!id) return;
+
+          const row = roomLogInner.querySelector(
+            '.bai-room-message[data-message-type="' + chatMode + '"][data-message-id="' + id + '"]'
+          );
+
+          if (row) row.remove();
+        }
+      )
+      .subscribe(status => {
+        if (status === "CHANNEL_ERROR" || status === "TIMED_OUT") {
+          console.error("Realtime error:", status);
+        }
+      });
+  }
+
+  roomForm.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const text = roomInput.value.trim();
+    if (!text || !chatMode) return;
+
+    roomInput.disabled = true;
+    roomSend.disabled = true;
+
+    try {
+      if (chatMode === "room") {
+        const { error } = await supabaseClient
+          .from("chatroom_messages")
+          .insert({
+            chatroom_id: currentRoom.id,
+            user_id: currentUser.id,
+            content: text
+          });
+        if (error) throw error;
+      } else {
+        const { error } = await supabaseClient
+          .from("dm_messages")
+          .insert({
+            conversation_id: currentDM.id,
+            user_id: currentUser.id,
+            content: text
+          });
+        if (error) throw error;
+      }
+
+      roomInput.value = "";
+    } catch (error) {
+      console.error(error);
+      alert("Could not send message:\n" + error.message);
+    } finally {
+      roomInput.disabled = false;
+      roomSend.disabled = false;
+      roomInput.focus();
+    }
+  });
+
+  /* ========================================================
+     CREATE ROOM
+     ======================================================== */
+
+  /* ========================================================
+     CREATE ROOM MODAL
+     ======================================================== */
+
+  const roomModal = document.getElementById("bai-room-modal");
+  const roomModalName = document.getElementById("bai-room-name-input");
+  const roomModalError = document.getElementById("bai-room-modal-error");
+  const roomModalCancel = document.getElementById("bai-room-modal-cancel");
+  const roomModalCreate = document.getElementById("bai-room-modal-create");
+  const roomVisibilityOptions = document.querySelectorAll(".bai-room-visibility-option");
+
+  let newRoomIsPrivate = false;
+
+  function openCreateRoomModal() {
+    newRoomIsPrivate = false;
+    roomModalName.value = "";
+    roomModalError.textContent = "";
+
+    roomVisibilityOptions.forEach(option => {
+      option.classList.toggle(
+        "selected",
+        option.dataset.private === "false"
+      );
+    });
+
+    roomModal.classList.add("show");
+    roomModal.setAttribute("aria-hidden", "false");
+
+    setTimeout(() => roomModalName.focus(), 20);
+  }
+
+  function closeCreateRoomModal() {
+    roomModal.classList.remove("show");
+    roomModal.setAttribute("aria-hidden", "true");
+  }
+
+  roomVisibilityOptions.forEach(option => {
+    option.addEventListener("click", () => {
+      newRoomIsPrivate = option.dataset.private === "true";
+
+      roomVisibilityOptions.forEach(item => {
+        item.classList.toggle("selected", item === option);
+      });
+    });
+  });
+
+  newRoomButton.onclick = openCreateRoomModal;
+  roomModalCancel.onclick = closeCreateRoomModal;
+
+  roomModal.addEventListener("click", event => {
+    if (event.target === roomModal) {
+      closeCreateRoomModal();
+    }
+  });
+
+  roomModalName.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeCreateRoomModal();
+    }
+
+    if (event.key === "Enter") {
+      event.preventDefault();
+      roomModalCreate.click();
+    }
+  });
+
+  roomModalCreate.onclick = async () => {
+    const cleanName = roomModalName.value.trim().substring(0, 40);
+
+    if (!cleanName) {
+      roomModalError.textContent = "enter a room name";
+      roomModalName.focus();
+      return;
+    }
+
+    roomModalCreate.disabled = true;
+    roomModalCancel.disabled = true;
+    roomModalError.textContent = "creating room...";
+
+    const { data, error } = await supabaseClient
+      .from("chatrooms")
+      .insert({
+        name: cleanName,
+        created_by: currentUser.id,
+        owner_id: currentUser.id,
+        is_private: newRoomIsPrivate
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error(error);
+      roomModalError.textContent =
+        "could not create room: " + error.message;
+      roomModalCreate.disabled = false;
+      roomModalCancel.disabled = false;
+      return;
+    }
+
+    chatrooms.push(data);
+
+    closeCreateRoomModal();
+
+    roomModalCreate.disabled = false;
+    roomModalCancel.disabled = false;
+
+    await joinAndSelectRoom(data);
+    await loadChatrooms();
+  };
+
+  /* ========================================================
+     INVITE TO ROOM
+     ======================================================== */
+
+  roomInviteButton.onclick = async () => {
+    if (!currentRoom || chatMode !== "room") return;
+
+    const username = prompt("Username to invite:");
+    if (!username || !username.trim()) return;
+
+    if (!currentRoom.is_private) {
+      const continueInvite = confirm(
+        "This is a public room. You can still invite the user, but they can already join it themselves. Continue?"
+      );
+      if (!continueInvite) return;
+    }
+
+    const { data, error } = await supabaseClient
+      .from("profiles")
+      .select("id, username")
+      .eq("username", username.trim())
+      .maybeSingle();
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    if (!data) {
+      alert("No user found with that username.");
+      return;
+    }
+
+    if (data.id === currentUser.id) {
+      alert("You are already in this room.");
+      return;
+    }
+
+    const { data: existingMember } = await supabaseClient
+      .from("chatroom_members")
+      .select("user_id")
+      .eq("chatroom_id", currentRoom.id)
+      .eq("user_id", data.id)
+      .maybeSingle();
+
+    if (existingMember) {
+      alert("That user is already in the room.");
+      return;
+    }
+
+    const { error: inviteError } = await supabaseClient
+      .from("chatroom_invites")
+      .insert({
+        chatroom_id: currentRoom.id,
+        inviter_id: currentUser.id,
+        invitee_id: data.id
+      });
+
+    if (inviteError) {
+      if (inviteError.code === "23505") {
+        alert("That user already has an invitation for this room.");
+      } else {
+        alert("Could not send invitation:\n" + inviteError.message);
+      }
+      return;
+    }
+
+    alert("Invitation sent to @" + data.username);
+  };
+
+  /* ========================================================
+     LEAVE / DELETE ROOM
+     ======================================================== */
+
+  roomLeaveButton.onclick = async () => {
+    if (!currentRoom || chatMode !== "room") return;
+
+    const isOwner = currentRoom.owner_id === currentUser.id;
+
+    if (isOwner) {
+      const confirmed = confirm(
+        "You own this room.\n\nOK = permanently delete the room and all its messages\nCancel = stay"
+      );
+
+      if (!confirmed) return;
+
+      const { error } = await supabaseClient
+        .from("chatrooms")
+        .delete()
+        .eq("id", currentRoom.id)
+        .eq("owner_id", currentUser.id);
+
+      if (error) {
+        alert("Could not delete room:\n" + error.message);
+        return;
+      }
+    } else {
+      const confirmed = confirm("Leave #" + currentRoom.name + "?");
+      if (!confirmed) return;
+
+      const { error } = await supabaseClient
+        .from("chatroom_members")
+        .delete()
+        .eq("chatroom_id", currentRoom.id)
+        .eq("user_id", currentUser.id);
+
+      if (error) {
+        alert("Could not leave room:\n" + error.message);
+        return;
+      }
+    }
+
+    currentRoom = null;
+    chatMode = null;
+
+    if (realtimeChannel) {
+      await supabaseClient.removeChannel(realtimeChannel);
+      realtimeChannel = null;
+    }
+
+    clearRoomView("room closed — choose another room or create one");
+    await refreshSocialData();
+  };
+
+  async function refreshSocialData() {
+    await loadChatrooms();
+    await loadRoomInvites();
+    await loadDms();
+  }
+
+  /* ========================================================
+     INITIALIZE
+     ======================================================== */
+
+  async function initialize() {
+
+    currentUser =
+      await getCurrentUser();
+
+
+    if (!currentUser) {
+
+      login.style.display =
+        "flex";
+
+      app.style.display =
+        "none";
+
+      return;
+    }
+
+
+    currentProfile =
+      await loadProfile();
+
+
+    login.style.display =
+      "none";
+
+    app.style.display =
+      "flex";
+
+
+    usernameDisplay.textContent =
+      "@" +
+      (
+        currentProfile?.username ||
+        currentUser.email?.split("@")[0] ||
+        "user"
+      );
+
+
+    conversations =
+      await loadConversations();
+
+
+    renderConversations();
+
+
+    if (
+      conversations.length ===
+      0
+    ) {
+
+      await createConversation();
+
+    } else {
+
+      await selectConversation(
+        conversations[0]
+      );
+
+    }
+
+
+    /*
+      Make sure there is a friends room.
+    */
+
+    await ensureFriendsRoom();
+
+
+    /*
+      Refresh room list so the newly
+      created room appears.
+    */
+
+    await refreshSocialData();
+
+
+    aiInput.focus();
+
+  }
+
+
+  /* ========================================================
+     START
+     ======================================================== */
+
+  initialize().catch(
+    function (error) {
+
+      console.error(
+        "Initialization:",
+        error
+      );
+
+      document.getElementById(
+        "bai-login-status"
+      ).textContent =
+        "startup error: " +
+        error.message;
+
+    }
+  );
+
+})();
+</script>
+```
